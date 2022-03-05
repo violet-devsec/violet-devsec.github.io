@@ -946,12 +946,14 @@ div.lozad.loaded:not(.no-fade-animation),img.lozad.loaded {
 
 .l-post-content .kg-image,.l-post-content img {
     display: block;
-    max-width: 100%;
-    margin: 0 auto 35px
+    max-width: 90%;
+    max-height: 300px;
+    margin: 0 15px;
 }
 
 @media only screen and (min-width: 48rem) {
     .l-post-content .kg-image,.l-post-content img {
+        margin-top: 20px;
         margin-bottom:40px
     }
 }
