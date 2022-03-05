@@ -6,25 +6,25 @@
 -->
 <html>
 	<head>
-		<title>WCF-HTTPS</title>
+		<title>PDF Injection</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../../assets/css/main.css" />
         <link rel="stylesheet" href="../../assets/css/app.css"/>
         <style>
             .m-hero__picture {
-              background-image: url(../../images/wcf/https_background.jpg);
+              background-image: url(../../images/ironpdf/ironpdf_background.jpg);
             }
           
             @media(max-width: 1000px) {
               .m-hero__picture {
-                background-image: url(../../images/wcf/https_background.jpg);
+                background-image: url(../../images/ironpdf/ironpdf_background.jpg);
               }
             }
           
             @media(max-width: 600px) {
               .m-hero__picture {
-                background-image: url(../../images/wcf/https_background.jpg);
+                background-image: url(../../images/ironpdf/ironpdf_background.jpg);
               }
             }
           </style>
@@ -119,7 +119,7 @@
 							<article class="post">
 								<header>
 									<div class="title">
-										<h2><a href="#">CREATING A WCF SERVICE ACCESSIBLE VIA HTTPS</a></h2>
+										<h2><a href="#">DATA EXFILTRATION VIA INJECTING CODE INTO 'IRONPDF' PDF GENERATOR</a></h2>
 										<p></p>
 									</div>
 									<div class="meta">
@@ -133,55 +133,40 @@
                                 <!--Post content-->
                                         <div class="l-post-content   js-progress-content">
                                             <div class="pos-relative js-post-content">
-                                                <p>Windows Communication Foundation (WCF), which is a unified programming model for building service-oriented applications. It enables developers to build secure, reliable, transacted solutions that integrate across platforms and interoperate with existing investments.</p>
+                                                <p>PDF generators are very helpful when we want to generate stylish PDFs from our website for multiple usecase. Here, in this example we are using IronPdf PDF generator for generating bill for the user.</p>
+                                                <p>We are using IronPdf version 2021.3.1 in this sample application. It is observed that we can achieve different flavors of SSRF attack in the webserver if the website pass user inputs directly to the PDF generator without any sanitization.</p>
+                                                <p>Source code for this sample application can be found at ''</p>
                                                 <ol>
                                                     <li>
-                                                        <strong>Start a new class library project under your solution.</strong>
-                                                        <img src="../../images/wcf/wcf_1.jpg" alt="" />
+                                                        <p>This is the website homepage where the user can add their content and generate bill. The application internally use IronPdf to generate the PDF and returns that to the user.</p>
+                                                        <img src="../../images/ironpdf/ironpdf_1.jpg" alt="" />
                                                     </li>
                                                     <li>
-                                                        <strong>Define the service contract</strong>
-                                                        <p>We are defining the service contract. The service contract specifies what operations the service supports. An operation can be thought of as a Web service method. You create service contracts by defining a C# or Visual Basic interface. An interface has the following characteristics:</p>
-                                                        <ul style="font-size: 1.1rem; line-height: 1.0;">
-                                                            <li>The interface should import System.ServiceModel class.</li>
-                                                            <li>Each method in the interface corresponds to a specific service operation.</li>
-                                                            <li>For each interface, you must apply the ServiceContractAttribute attribute.</li>
-                                                            <li>For each operation/method, you must apply the OperationContractAttribute attribute.</li>
-                                                        </ul>
-                                                        <img src="../../images/wcf/wcf_2.jpg" alt="" />
+                                                        <p>We are trying the functionality with a test content. You can see the preview of the final PDF on the same page itself. You can go ahead for generating PDF if the preview is good.</p>
+                                                        <img src="../../images/ironpdf/ironpdf_2.jpg" alt="" />
                                                     </li>
                                                     <li>
-                                                        <strong>The next step for creating a WCF application is to add code to implement the WCF service interface that you created in the previous step.</strong>
-                                                        <img src="../../images/wcf/wcf_3.jpg" alt="" />
+                                                        <p>We have submitted the PDF generate request to the webserver and PDF got generated successfully. We can view/download the generated bill pdf by clicking the 'Download PDF' link.</p>
+                                                        <img src="../../images/ironpdf/ironpdf_3.jpg" alt="" />
                                                     </li>
                                                     <li>
-                                                        <strong>Start another Console application project under your solution. This will be acting as the host for your service.</strong>
-                                                        <img src="../../images/wcf/wcf_4.jpg" alt="" />
+                                                        <p>We can see the downloaded bill, which is generated by the PDF generator.</p>
+                                                        <img src="../../images/ironpdf/ironpdf_4.jpg" alt="" />
                                                     </li>
                                                     <li>
-                                                        <strong>Your application source code files will look like below,</strong>
-                                                        <img src="../../images/wcf/wcf_5.jpg" alt="" />
+                                                        <p>So far we have seen the normal use of this website. Let's go to our attack now. PDF generators generally support HTML, Javascript and CSS execution to style the PDF.</p>
+                                                        <p>We are going to submit Javascript code with LFI(Local File Inclusion) vector. Our preview does not really add anything for this script at client side. Let's submit this to server side and see what's gonna happen.</p>
+                                                        <img src="../../images/ironpdf/ironpdf_5.jpg" alt="" />
                                                     </li>
-                                                    <p>Program.cs : ServiceHost</p>
-                                                    <img src="../../images/wcf/wcf_6.jpg" alt="" />
-                                                    <p>App.config : This config file hosts the service in the mentioned service URL. You can mention the machine name and designated port to uniquely host your service.</p>
-                                                    <img src="../../images/wcf/wcf_7.jpg" alt="" />
                                                     <li>
-                                                        <strong>Write a Client console application to consume the service.</strong>
-                                                        <img src="../../images/wcf/wcf_8.jpg" alt="" />
+                                                        <p>Webserver created the file and we are going to download it to client side.</p>
+                                                        <img src="../../images/ironpdf/ironpdf_6.jpg" alt="" />
                                                     </li>
-                                                    <p>Program.cs : ServiceClient</p>
-                                                    <img src="../../images/wcf/wcf_9.jpg" alt="" />
                                                     <li>
-                                                        <strong>Start host application and generate the proxy and config files from the metadata exchange end point using “svcutil”.</strong>
-                                                        <img src="../../images/wcf/wcf_10.jpg" alt="" />
+                                                        <p>Yes! we have fetched a server local file(appsettings.json) to client side inside the PDF generated by IronPdf.</p>
+                                                        <img src="../../images/ironpdf/ironpdf_7.jpg" alt="" />
                                                     </li>
                                                 </ol>
-                                                <!-- Pagination -->
-                                                <ul class="actions pagination">
-                                                    <li><a href="" class="disabled button large previous">Previous Page</a></li>
-                                                    <li><a href="second.html" class="button large next" style="position: absolute; right: 0;">Next Page</a></li>
-                                                </ul>
                                             </div>
                                             
                                         </div>

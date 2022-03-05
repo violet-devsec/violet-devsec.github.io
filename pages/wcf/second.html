@@ -6,25 +6,25 @@
 -->
 <html>
 	<head>
-		<title>Single - Future Imperfect by HTML5 UP</title>
+		<title>WCF-HTTPS</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="../../assets/css/main.css" />
         <link rel="stylesheet" href="../../assets/css/app.css"/>
         <style>
             .m-hero__picture {
-              background-image: url(../../images/https_background.jpg);
+              background-image: url(../../images/wcf/https_background.jpg);
             }
           
             @media(max-width: 1000px) {
               .m-hero__picture {
-                background-image: url(../../images/https_background.jpg);
+                background-image: url(../../images/wcf/https_background.jpg);
               }
             }
           
             @media(max-width: 600px) {
               .m-hero__picture {
-                background-image: url(../../images/https_background.jpg);
+                background-image: url(../../images/wcf/https_background.jpg);
               }
             }
           </style>
@@ -124,7 +124,7 @@
 									</div>
 									<div class="meta">
 										<time class="published" datetime="2015-11-01">October 14, 2020</time>
-										<a href="#" class="author"><span class="name">Violet Devsec</span><img src="images/avatar.jpg" alt="" /></a>
+										<a href="#" class="author"><span class="name">Violet Devsec</span><img src="../../images/avatar.jpg" alt="" /></a>
 									</div>
 								</header>
                                 <section class="m-hero with-picture aos-init aos-animate" data-aos="fade">
@@ -137,7 +137,7 @@
                                                 <ol start="8">
                                                     <li>
                                                         <strong>Add both files to the client application.</strong>
-                                                        <img src="../../images/wcf_11.jpg" alt="" />
+                                                        <img src="../../images/wcf/wcf_11.jpg" alt="" />
                                                     </li>
                                                     <li>
                                                         <p>Go to the run window and type "mmc", hit enter. Then in the window that opens (called the "Microsoft Management Console, for those who care) perform the following actions.
@@ -145,40 +145,40 @@
                                                     </li>
                                                     <li>
                                                         <strong>Create the Root CA cert in host machine using “makecert”.</strong>
-                                                        <img src="../../images/wcf_12.jpg" alt="" />
+                                                        <img src="../../images/wcf/wcf_12.jpg" alt="" />
                                                     </li>
                                                     <li>
                                                         <strong>Move the Root CA cert to Trusted Root Node from Personal Node by drag and drop.</strong>
-                                                        <img src="../../images/wcf_13.jpg" alt="" />
+                                                        <img src="../../images/wcf/wcf_13.jpg" alt="" />
                                                     </li>
                                                     <li>
                                                         <strong>Use “makecert” again to create Server certificate.</strong>
-                                                        <img src="../../images/wcf_14.jpg" alt="" />
+                                                        <img src="../../images/wcf/wcf_14.jpg" alt="" />
 														<p>*-n should be the host machine’s name.</p>	
                                                     </li>
                                                     <li>
                                                         <strong>Export the CA certificate to .cer format.</strong>
-                                                        <img src="../../images/wcf_15.jpg" alt="" />
+                                                        <img src="../../images/wcf/wcf_15.jpg" alt="" />
                                                     </li>
 														<strong>Exchange the .cer file to the client machine and install the exported certificate.</strong>
-														<img src="../../images/wcf_16.jpg" alt="" />
+														<img src="../../images/wcf/wcf_16.jpg" alt="" />
                                                     <li>
                                                         <strong>Add it to Trusted Root node.</strong>
-                                                        <img src="../../images/wcf_17.jpg" alt="" />
+                                                        <img src="../../images/wcf/wcf_17.jpg" alt="" />
                                                     </li>
 													<li>
                                                         <strong>Bind the SSL cert to the application port in the Host machine.</strong>
 														<p>(Start administrator powershell to perform this operation)
 															Certhash=thumbprint of ssl certificate, appid=Host application’s assembly info Id</p>
-                                                        <img src="../../images/wcf_18.jpg" alt="" />
+                                                        <img src="../../images/wcf/wcf_18.jpg" alt="" />
                                                     </li>
 													<li>
                                                         <strong>Start the host service in the host machine</strong>
-                                                        <img src="../../images/wcf_19.jpg" alt="" />
+                                                        <img src="../../images/wcf/wcf_19.jpg" alt="" />
                                                     </li>
 													<li>
                                                         <strong>Start the client app in the client machine and start using the service using https.</strong>
-                                                        <img src="../../images/wcf_20.jpg" alt="" />
+                                                        <img src="../../images/wcf/wcf_20.jpg" alt="" />
                                                     </li>
                                                 </ol>
 												<!-- Pagination -->
