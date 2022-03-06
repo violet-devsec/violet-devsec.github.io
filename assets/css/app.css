@@ -2679,7 +2679,7 @@ div.lozad.loaded:not(.no-fade-animation),img.lozad.loaded {
 
 @media only screen and (min-width: 80rem) {
     .m-hero.with-picture {
-        min-height:565px
+        height:40%
     }
 }
 

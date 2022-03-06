@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Burp-VSCode</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="../../assets/css/main.css" />
+        <link rel="stylesheet" href="../../assets/css/app.css"/>
+        <style>
+            .m-hero__picture {
+              background-image: url(../../images/burpext/burpext_background.jpg);
+            }
+          
+            @media(max-width: 1000px) {
+              .m-hero__picture {
+                background-image: url(../../images/burpext/burpext_background.jpg);
+              }
+            }
+          
+            @media(max-width: 600px) {
+              .m-hero__picture {
+                background-image: url(../../images/burpext/burpext_background.jpg);
+              }
+            }
+          </style>
+	</head>
+	<body class="single is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="../../index.html">Violet Devsec</a></h1>
+                        <!--
+                            <nav class="links">
+                                <ul>
+                                    <li><a href="#">Lorem</a></li>
+                                    <li><a href="#">Ipsum</a></li>
+                                    <li><a href="#">Feugiat</a></li>
+                                    <li><a href="#">Tempus</a></li>
+                                    <li><a href="#">Adipiscing</a></li>
+                                </ul>
+                            </nav>
+                        -->
+						<nav class="main">
+							<ul>
+								<li class="search">
+									<a class="fa-search" href="#search">Search</a>
+									<form id="search" method="get" action="#">
+										<input type="text" name="query" placeholder="Search" />
+									</form>
+								</li>
+								<li class="menu">
+									<a class="fa-bars" href="#menu">Menu</a>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<section id="menu">
+
+						<!-- Search -->
+							<section>
+								<form class="search" method="get" action="#">
+									<input type="text" name="query" placeholder="Search" />
+								</form>
+							</section>
+
+						<!-- Links -->
+							<section>
+								<ul class="links">
+									<li>
+										<a href="#">
+											<h3>Lorem ipsum</h3>
+											<p>Feugiat tempus veroeros dolor</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Dolor sit amet</h3>
+											<p>Sed vitae justo condimentum</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Feugiat veroeros</h3>
+											<p>Phasellus sed ultricies mi congue</p>
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<h3>Etiam sed consequat</h3>
+											<p>Porta lectus amet ultricies</p>
+										</a>
+									</li>
+								</ul>
+							</section>
+
+						<!-- Actions -->
+							<section>
+								<ul class="actions stacked">
+									<li><a href="#" class="button large fit">Log In</a></li>
+								</ul>
+							</section>
+
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="#">CREATING BURP SUITE EXTENSION USING VISUAL STUDIO CODE</a></h2>
+										<p></p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="2015-11-01">October 14, 2020</time>
+										<a href="#" class="author"><span class="name">Violet Devsec</span><img src="../../images/avatar.jpg" alt="" /></a>
+									</div>
+								</header>
+                                <section class="m-hero with-picture aos-init aos-animate" data-aos="fade">
+                                    <div class="m-hero__picture in-post"></div>
+                                </section>
+                                <!--Post content-->
+                                        <div class="l-post-content   js-progress-content">
+                                            <div class="pos-relative js-post-content">
+                                                <p>Burp extensions gives you power to automate unique dynamic security testing scenarios. In this article, we will see the dev setup needed to start developing burp extension in Java using VS Code as IDE.</p>
+                                                <ol>
+                                                    <li>
+                                                        <strong>Install Java Dev Kit</strong>
+														<p>I have installed jdk-16.0.1_windows-x64_bin from https://www.oracle.com/java/technologies/javase-jdk16-downloads.html</p>
+                                                    </li>
+                                                    <li>
+                                                        <strong>Install Gradle</strong>
+                                                        <ul style="font-size: 1.1rem; line-height: 1.0;">
+                                                            <li>I have installed v7.0.2 from https://gradle.org/releases/</li>
+                                                            <li>Add "PATH" variable after installation "C:\Program Files\gradle-7.0.2\bin"</li>
+                                                            <li>Try command "gradle -version"</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <strong>Setting Up Gradle</strong>
+														<ul style="font-size: 1.1rem; line-height: 1.0;">
+                                                            <li>Create a directory for extension development</li>
+                                                            <li>Run the following command in the root of the directory, "gradle init --type basic"</li>
+                                                            <li>Press ENTER twice to select default.</li>
+															<li>Give name of the Extension, it can be changed later by editing "settings.gradle"</li>
+															<li>Open "build.gradle" file and paste following commands,</li>
+                                                        </ul>
+                                                        <img src="../../images/burpext/burpext_1.png" alt="" />
+                                                    </li>
+                                                    <li>
+                                                        <strong>Gradle Wrapper</strong>
+														<p>The Gradle Wrapper is a way to get reliable builds regardless of the local Gradle version.</p>
+														<ul style="font-size: 1.1rem; line-height: 1.0;">
+                                                            <li>Run gradle wrapper in the extension directory.</li>
+                                                            <li>To build the project with the Wrapper, replace gradle in your commands with gradlew (Linux) or gradlew.bat (Windows). Eg. gradlew.bat build</li>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <strong>Install VS Code and Java Extensions</strong>
+                                                    </li>
+                                                    <li>
+                                                        <strong>Creating a project structure in VS Code</strong>
+														<ul style="font-size: 1.1rem; line-height: 1.0;">
+                                                            <li>Create the src\burp directory</li>
+															<img src="../../images/burpext/burpext_2.png" alt="" />
+                                                            <li>In src\burp create a file named BurpExtender.java</li>
+															<img src="../../images/burpext/burpext_3.png" alt="" />
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <strong>Setting up VS Code Tasks</strong>
+														<ul style="font-size: 1.1rem; line-height: 1.0;">
+                                                            <li>Press F1 to open the VS Code command palette.</li>
+                                                            <li>Type task and select Configure Default Build Task</li>
+                                                            <li>Select Create tasks.json file from template</li>
+															<li>Select Others. VS Code will create the .vscode\tasks.json file</li>
+															<li>Open .vscode\tasks.json and paste the following in it</li>
+															<img src="../../images/burpext/burpext_4.png" alt="" />
+															<li>To build, Press F1 to open the command palette, typing tasks then selecting Run Build Task. The output jar will be in "build\libs\"</li>
+															<img src="../../images/burpext/burpext_5.png" alt="" />
+															<img src="../../images/burpext/burpext_6.png" alt="" />
+                                                        </ul>
+                                                    </li>
+                                                </ol>
+                                                <!-- Pagination -->
+                                                <ul class="actions pagination">
+                                                    <li><a href="" class="disabled button large previous">Previous Page</a></li>
+                                                    <li><a href="second.html" class="button large next" style="position: absolute; right: 0;">Next Page</a></li>
+                                                </ul>
+                                            </div>
+                                            
+                                        </div>
+                                         
+								<footer>
+									<ul class="stats">
+										<li><a href="#">General</a></li>
+										<li><a href="#" class="icon solid fa-heart">28</a></li>
+										<li><a href="#" class="icon solid fa-comment">128</a></li>
+									</ul>
+								</footer>
+							</article>
+                           
+					</div>
+
+				<!-- Footer -->
+					<section id="footer">
+						<ul class="icons">
+							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="#" class="icon solid fa-rss"><span class="label">RSS</span></a></li>
+							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+						</ul>
+						<p class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>. Images: <a href="http://unsplash.com">Unsplash</a>.</p>
+					</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="../../assets/js/jquery.min.js"></script>
+			<script src="../../assets/js/browser.min.js"></script>
+			<script src="../../assets/js/breakpoints.min.js"></script>
+			<script src="../../assets/js/util.js"></script>
+			<script src="../../assets/js/main.js"></script>
+
+	</body>
+</html>
